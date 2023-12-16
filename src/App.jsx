@@ -1,7 +1,7 @@
 import React from 'react'
 // import './App.css'
 import HomeComponent from './HomeComponent'
-import QuizComponent from './QuizComponent'
+import QuizComponent from './quizComponent'
 // import ResultComponent from './ResultComponent'
 import Data from './component/questions'
 import { Route,Routes } from 'react-router-dom'

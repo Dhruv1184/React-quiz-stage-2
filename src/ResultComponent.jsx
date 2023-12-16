@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styling from './Result.module.css'
 import { Link } from 'react-router-dom'
-import QuizComponent from './QuizComponent'
+import QuizComponent from './quizComponent'
 import Data from './component/questions'
 
 
