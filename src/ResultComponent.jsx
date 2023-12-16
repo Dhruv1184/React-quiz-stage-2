@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import styling from './Result.module.css'
 import { Link } from 'react-router-dom'
-
+import QuizComponent from './QuizComponent'
+import Data from './component/questions'
 
 
 class ResultComponent extends Component {
  
+  constructor(props){
+    super(props)
+    this.state={
+      result : true
+    }
+  }
   playAgain=()=>{
-    window.location.reload(false)
+    // window.location.reload(false)
+   this.setState({result:false})
+   console.log(!this.state.result);
   }
   render() {
     const score = this.props.score
@@ -16,7 +25,8 @@ class ResultComponent extends Component {
     const attempt = score + this.props.wrong
 
     return (
-      
+      <>
+      {this.state.result?
       <div className={styling.body}>
         <h1 className={styling.h1}>Result</h1>
         <div className={styling.main}>
@@ -47,6 +57,12 @@ class ResultComponent extends Component {
         </Link>
 
       </div>
+      :
+      <div>
+        <QuizComponent data = {Data}/>
+      </div>
+       }
+      </>
     )
   }
 }

@@ -34,13 +34,12 @@ import ResultComponent from './ResultComponent'
                 this.setState({count : this.state.count+1})
             }
         }
-        console.log(e.target.innerText)
-        console.log(this.state.prop[this.state.count-1].answer)
-        console.log(this.state.score)
+      
     }
     next = ()=>{
         if (this.state.count < 15){
         this.setState({count : this.state.count+1})
+        
         }
     }
 
@@ -55,27 +54,28 @@ import ResultComponent from './ResultComponent'
     }
 
   render() {
-    const data = this.props.data()
+    
     return (
         <>
+        {console.log(this.state.prop)}
        {(this.state.result)? 
       <div className={styles.body}>
         <div className={styles.playarea}>
             <h1 className={styles.heading}>Question</h1>
             <h4 className={styles.number}>{this.state.count} of 15</h4>
-            <h3 className={styles.question}>{data[this.state.count-1].question}</h3>
+            <h3 className={styles.question}>{this.state.prop[this.state.count-1].question}</h3>
             <div className={styles.option}>
                 <div className={styles.box} onClick={(e)=>this.HandleClick(e)}>
-                    <h3 id='opt' >{data[this.state.count-1].optionA}</h3>
+                    <h3 id='opt' >{this.state.prop[this.state.count-1].optionA}</h3>
                 </div>
                 <div  className={styles.box} onClick={(e)=>this.HandleClick(e)}>
-                    <h3 id='opt'>{data[this.state.count-1].optionB}</h3>
+                    <h3 id='opt'>{this.state.prop[this.state.count-1].optionB}</h3>
                 </div>
                 <div  className={styles.box} onClick={(e)=>this.HandleClick(e)}>
-                    <h3 id='opt'>{data[this.state.count-1].optionC}</h3>
+                    <h3 id='opt'>{this.state.prop[this.state.count-1].optionC}</h3>
                 </div>
                 <div  className={styles.box} onClick={(e)=>this.HandleClick(e)}>
-                    <h3 id='opt'>{data[this.state.count-1].optionD}</h3>
+                    <h3 id='opt'>{this.state.prop[this.state.count-1].optionD}</h3>
                 </div>
             </div>
             <button className={styles.btn1} onClick={this.previous}>Previous</button>
